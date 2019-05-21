@@ -15,6 +15,28 @@ body {
   min-height: 100vh;
 }
 
-.normal {
-  background: #F279B8;
+.box {
+  color: blueviolet;
+  background: aliceblue;
+  margin: 30px 20px;
+  padding: 10px;
+}
+
+.left {
+  float: left;
+  display: inline-block;
+}
+.right {
+  float: right;
+  display: inline-block;
+}
+
+.box:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.box-center {
+  text-align: center;
 }
