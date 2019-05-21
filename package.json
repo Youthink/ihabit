@@ -1,4 +1,8 @@
 {
+  "devDependencies": {
+    "umi": "^2",
+    "umi-plugin-gh-pages":  "^0.x"
+  },
   "dependencies": {
     "emoji-js": "^3.4.1"
   }

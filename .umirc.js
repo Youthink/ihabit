@@ -1,3 +1,8 @@
 export default {
-  disableCSSModules: true
-};
+  base: '/ihabit/',
+  publicPath: '/ihabit/',
+  disableCSSModules: true,
+  plugins: [
+    ['umi-plugin-gh-pages'],
+  ],
+}
