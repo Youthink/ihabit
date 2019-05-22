@@ -13,7 +13,7 @@ let routes = [
     "component": require('../index.js').default
   },
   {
-    "component": () => React.createElement(require('/Users/vic/Hufy/habit_web/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'pages', hasRoutesInConfig: false })
+    "component": () => React.createElement(require('/usr/local/lib/node_modules/umi/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'pages', hasRoutesInConfig: false })
   }
 ];
 window.g_routes = routes;
