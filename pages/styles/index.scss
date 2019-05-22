@@ -1,18 +1,45 @@
+@import "maxwidth.scss";
+@import "utils.scss";
 
 body {
   background: #F4F7FE;
 }
 
+.anticon {
+  vertical-align: bottom;
+  &.anticon-plus {
+    color: #cacacf;
+    font-size: rem(23);
+  }
+  &.anticon-menu {
+    color: #cacacf;
+    font-size: rem(23);
+  }
+}
+
 .box-container {
-  max-width: 1440px;
+  max-width: rem(1440);
   margin: 0 auto;
-  box-shadow: 0 16px 48px #E7EBF6;
+  box-shadow: 0 rem(16) rem(48) #E7EBF6;
 
   background: #fff;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.site-header {
+  padding: rem(16) rem(10) rem(16);
+  text-align: center;
+  border-bottom: 1px solid #f8f9fb;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.1);
+  .site-title {
+    font-size: rem(20);
+    color: #525252;
+    font-weight: bold;
+    display: inline-block;
+  }
 }
 
 .box {
@@ -39,4 +66,17 @@ body {
 
 .box-center {
   text-align: center;
+}
+
+.add-habit {
+  padding: rem(15) rem(16);
+  position: fixed;
+  border-radius: 50%;
+  box-shadow: -1px 1px 12px rgba(0, 0, 0, 0.5);
+  background: #14cc80;
+  bottom: rem(60);
+  right: rem(20);
+  .anticon-plus {
+    color: #FFF;
+  }
 }
