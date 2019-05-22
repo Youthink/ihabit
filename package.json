@@ -1,4 +1,7 @@
 {
+  "name": "ihabit",
+  "version": "0.0.1",
+  "author": "Youthink",
   "devDependencies": {
     "umi": "^2",
     "umi-plugin-gh-pages":  "^0.x"
