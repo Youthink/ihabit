@@ -1,3 +1,4 @@
 /pages/.umi
+*.log
 /dist
 /node_modules
