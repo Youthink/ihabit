@@ -2,6 +2,9 @@ export default {
   base: '/ihabit/',
   publicPath: '/ihabit/',
   sass: {},
+  alias: {
+    moment: 'dayjs'
+  },
   disableCSSModules: true,
   chainWebpack(config, { webpack }) {
     // code split @ant-design/icons

@@ -10,5 +10,7 @@
     "umi-plugin-react": "^1.7.6",
     "webpack-ant-icon-loader": "^1.0.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dayjs": "^1.8.14"
+  }
 }
