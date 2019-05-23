@@ -1750,7 +1750,7 @@ antd-mobile@2.x:
     rmc-tabs "~1.2.0"
     rmc-tooltip "~1.0.0"
 
-antd@3.x, antd@^3.18.2:
+antd@3.x:
   version "3.18.2"
   resolved "https://r.cnpmjs.org/antd/download/antd-3.18.2.tgz#10d5c1685e0ba782565eb45508e9a34b4aadb180"
   integrity sha1-ENXBaF4Lp4JWXrRVCOmjS0qtsYA=
@@ -4277,18 +4277,6 @@ email-addresses@^3.0.1:
   version "3.0.3"
   resolved "https://r.cnpmjs.org/email-addresses/download/email-addresses-3.0.3.tgz#fc3c6952f68da24239914e982c8a7783bc2ed96d"
   integrity sha1-/DxpUvaNokI5kU6YLIp3g7wu2W0=
-
-emoji-datasource@4.0.0:
-  version "4.0.0"
-  resolved "https://r.cnpmjs.org/emoji-datasource/download/emoji-datasource-4.0.0.tgz#3fc9c0c2f4fb321d9291138819f6d100603d3e2f"
-  integrity sha1-P8nAwvT7Mh2SkROIGfbRAGA9Pi8=
-
-emoji-js@^3.4.1:
-  version "3.4.1"
-  resolved "https://r.cnpmjs.org/emoji-js/download/emoji-js-3.4.1.tgz#422cdf184fd818a910289861ead4782db3e8dc8d"
-  integrity sha1-QizfGE/YGKkQKJhh6tR4LbPo3I0=
-  dependencies:
-    emoji-datasource "4.0.0"
 
 emoji-regex@^6.5.1:
   version "6.5.1"

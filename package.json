@@ -9,8 +9,5 @@
     "umi-plugin-gh-pages": "^0.x",
     "umi-plugin-react": "^1.7.6"
   },
-  "dependencies": {
-    "antd": "^3.18.2",
-    "emoji-js": "^3.4.1"
-  }
+  "dependencies": {}
 }
