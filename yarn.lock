@@ -13198,6 +13198,11 @@ webidl-conversions@^4.0.2:
   resolved "https://r.cnpmjs.org/webidl-conversions/download/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
   integrity sha1-qFWYCx8LazWbodXZ+zmulB+qY60=
 
+webpack-ant-icon-loader@^1.0.5:
+  version "1.0.5"
+  resolved "https://r.cnpmjs.org/webpack-ant-icon-loader/download/webpack-ant-icon-loader-1.0.5.tgz#e836282405ed12ed0e58da06799af6db12bc7fde"
+  integrity sha1-6DYoJAXtEu0OWNoGeZr22xK8f94=
+
 webpack-bundle-analyzer@3.0.4:
   version "3.0.4"
   resolved "https://r.cnpmjs.org/webpack-bundle-analyzer/download/webpack-bundle-analyzer-3.0.4.tgz#095638487a664162f19e3b2fb7e621b7002af4b8"
