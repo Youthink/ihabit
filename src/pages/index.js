@@ -1,5 +1,6 @@
 import { Icon, Modal, Input, Radio } from 'antd';
-import { useState } from 'react';
+import { useState, useEffect }       from 'react';
+import { fetchHabitList }            from '@/action';
 
 import '@/styles/app.scss';
 import '@/styles/index.scss';
@@ -8,6 +9,17 @@ const indexPage = () => {
 
   const [needLogin, setLoginStatus] = useState(false);
   const [showAddHabitModal, setAddHabitModalStatus] = useState(false);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = () => {
+    fetchHabitList().then((res) => {
+      console.log(res);
+    });
+  };
+
 
   const addHabit = () => {
     setAddHabitModalStatus(true);
