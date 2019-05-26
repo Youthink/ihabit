@@ -8,6 +8,7 @@ import '@/styles/index.scss';
 const indexPage = () => {
 
   const [needLogin, setLoginStatus] = useState(false);
+  const [habitsList, updateHabitsList] = useState([]);
   const [showAddHabitModal, setAddHabitModalStatus] = useState(false);
 
   useEffect(() => {
@@ -15,8 +16,8 @@ const indexPage = () => {
   }, []);
 
   const loadData = () => {
-    fetchHabitList().then((res) => {
-      console.log(res);
+    fetchHabitList().then(({ data }) => {
+      updateHabitsList(data && data.habitsList);
     });
   };
 
@@ -39,12 +40,24 @@ const indexPage = () => {
             <Icon type="plus" />
           </div>
         </header>
-        <div className="box">
-          <div className="box-center">
-            if 用户未登录 显示网站使用说明和目前的人数
-          </div>
-        </div>
-
+        <section className="habits-container">
+          {habitsList.map(o => {
+            return(
+              <div className="box" key={o.id}>
+                <div className="habit-icon">
+                  <Icon type="smile" theme="twoTone" twoToneColor="#eb2f96" />
+                </div>
+                <div className="info">
+                  <div className="name">{o.name}</div>
+                  <div className="score">奖励分：{o.score}</div>
+                </div>
+                <div className="check right">
+                  <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
+                </div>
+              </div>
+            )})
+          }
+        </section>
         <div className="add-habit" onClick={addHabit}>
           <Icon type="plus" />
         </div>

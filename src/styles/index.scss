@@ -42,30 +42,49 @@ body {
   }
 }
 
-.box {
-  color: blueviolet;
-  background: aliceblue;
-  margin: 30px 20px;
-  padding: 10px;
+.habits-container {
+  .box {
+    color: blueviolet;
+    background: aliceblue;
+    padding: rem(15);
+    margin: rem(15);
+    border-radius: rem(5);
+    .habit-icon {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: rem(30);
+      margin-right: rem(16);
+      line-height: rem(30);
+    }
+    .info {
+      vertical-align: middle;
+      display: inline-block;
+      .name {
+        font-size: rem(16);
+        font-weight: 500;
+      }
+      .score {
+        font-size: rem(12);
+        color: #ccc;
+        margin-top: rem(5);
+      }
+    }
+    .check {
+      vertical-align: middle;
+      font-size: rem(30);
+      line-height: rem(38);
+    }
+  }
 }
 
 .left {
   float: left;
   display: inline-block;
 }
+
 .right {
   float: right;
   display: inline-block;
-}
-
-.box:after {
-  display: block;
-  content: '';
-  clear: both;
-}
-
-.box-center {
-  text-align: center;
 }
 
 .add-habit {
