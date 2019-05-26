@@ -2,10 +2,15 @@
   "name": "ihabit",
   "version": "0.0.1",
   "author": "Youthink",
+  "scripts": {
+    "lint": "umi-lint --eslint src/",
+    "precommit": "umi-lint --staged --eslint --stylelint --prettier --fix"
+  },
   "devDependencies": {
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "umi": "^2",
+    "umi-lint": "^1.0.1",
     "umi-plugin-gh-pages": "^0.x",
     "umi-plugin-react": "^1.7.6",
     "webpack-ant-icon-loader": "^1.0.5"
