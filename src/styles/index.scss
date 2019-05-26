@@ -42,10 +42,21 @@ body {
   }
 }
 
-.habits-container {
-  .box {
+.score-container {
+  background: aliceblue;
+  padding: rem(15);
+  margin: rem(15);
+  border-radius: rem(5);
+  .text {
     color: blueviolet;
-    background: aliceblue;
+  }
+}
+
+.habits-container {
+  background: #f8f9fb;
+  .box {
+    color: #666;
+    background: #FFF;
     padding: rem(15);
     margin: rem(15);
     border-radius: rem(5);

@@ -9,6 +9,7 @@ const indexPage = () => {
 
   const [needLogin, setLoginStatus] = useState(false);
   const [habitsList, updateHabitsList] = useState([]);
+  const [totalScore, updateTotalScore] = useState({});
   const [showAddHabitModal, setAddHabitModalStatus] = useState(false);
 
   useEffect(() => {
@@ -18,6 +19,12 @@ const indexPage = () => {
   const loadData = () => {
     fetchHabitList().then(({ data }) => {
       updateHabitsList(data && data.habitsList);
+      updateTotalScore(
+        {
+          todayTotalScore: data && data.todayTotalScore,
+          weekTotalScore: data && data.weekTotalScore
+        }
+      );
     });
   };
 
@@ -40,12 +47,20 @@ const indexPage = () => {
             <Icon type="plus" />
           </div>
         </header>
+        <section className="score-container">
+          <span className="text left">
+            今日总分数：{totalScore.todayTotalScore}
+          </span>
+          <span className="text right">
+            本周总分数：{totalScore.weekTotalScore}
+          </span>
+        </section>
         <section className="habits-container">
           {habitsList.map(o => {
             return(
               <div className="box" key={o.id}>
                 <div className="habit-icon">
-                  <Icon type="smile" theme="twoTone" twoToneColor="#eb2f96" />
+                  {/*<Icon type="smile" theme="twoTone" twoToneColor="#eb2f96" />*/}
                 </div>
                 <div className="info">
                   <div className="name">{o.name}</div>
