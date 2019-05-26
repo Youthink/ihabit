@@ -7,3 +7,10 @@ export const fetchHabitList = () => {
     params: {date: todayDate}
   });
 };
+
+export const completeHabit = (params) => {
+  return ajax(apiUrl.completeHabitUrl, {
+    method: 'POST',
+    params
+  });
+}

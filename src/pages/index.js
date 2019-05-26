@@ -1,6 +1,8 @@
-import { Icon, Modal, Input, Radio } from 'antd';
-import { useState, useEffect }       from 'react';
-import { fetchHabitList }            from '@/action';
+import { Icon, Modal, Input, Radio, message } from 'antd';
+import { useState, useEffect }                from 'react';
+import cx                                     from 'classnames';
+import { fetchHabitList, completeHabit }      from '@/action';
+
 
 import '@/styles/app.scss';
 import '@/styles/index.scss';
@@ -33,6 +35,16 @@ const indexPage = () => {
     setAddHabitModalStatus(true);
   }
 
+  const checkInHabit = (o) => {
+    if (o.status === 'finish') {
+      return;
+    }
+    completeHabit({habitId: o.habitId}).then((res) => {
+      message.success(res.apiMessage);
+      loadData();
+    });
+  }
+
   return (
     <div className="index-page">
       <div className="box-container">
@@ -58,16 +70,30 @@ const indexPage = () => {
         <section className="habits-container">
           {habitsList.map(o => {
             return(
-              <div className="box" key={o.id}>
+              <div
+                className="box"
+                onClick={() => checkInHabit(o)}
+                key={o.id}
+              >
                 <div className="habit-icon">
                   {/*<Icon type="smile" theme="twoTone" twoToneColor="#eb2f96" />*/}
                 </div>
                 <div className="info">
                   <div className="name">{o.name}</div>
-                  <div className="score">奖励分：{o.score}</div>
+                  <div className="score">
+                    {o.status === 'finish' ?
+                      <span>已完成，获得 {o.score} 分</span>
+                      :
+                      <span>分值：{o.score}</span>
+                    }
+                  </div>
                 </div>
                 <div className="check right">
-                  <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
+                  {o.status === 'finish' ?
+                    <Icon type="like" theme="twoTone" twoToneColor="#eb2f96" />
+                    :
+                    <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
+                  }
                 </div>
               </div>
             )})
