@@ -1,24 +1,21 @@
-import request, { extend } from 'umi-request';
-import { message }         from 'antd';
-import apiUrl              from '@/utils/apiUrl';
+import request, { extend } from "umi-request";
+import { message } from "antd";
 
 const ajax = extend({
-  credentials: 'include',
-  errorHandler: (error) => {
-  }
+  credentials: "include"
 });
 
-request.interceptors.response.use(async (response) => {
+request.interceptors.response.use(async response => {
   const res = await response.clone().json();
-  if(res && res.apiCode === '1000') {
-    console.log('需要登录');
+  if (res && res.apiCode === 1000) {
+    // console.log('需要登录');
   }
 
-  if(res && res.apiMessage && !res.success) {
-    return message.error(data.apiMessage);
+  if (res && res.apiMessage && !res.success) {
+    return message.error(res.apiMessage);
   }
 
   return response;
-})
+});
 
 export default ajax;

@@ -1,12 +1,12 @@
-const { hostname, port } = window.location;
+const { port } = window.location;
 
 const getHost = () => {
   // dev
   if (port) {
-    return 'http://fe.iday.top:4000';
+    return "http://fe.iday.top:4000";
   }
   // prod
-  return 'http://ihabit.iyearn.top';
+  return "http://ihabit.iyearn.top";
 };
 export default {
   indexHabitListUrl: `${getHost()}/api/v1/day`,

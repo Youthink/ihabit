@@ -1,16 +1,15 @@
-import ajax          from '@/utils/ajax';
-import apiUrl        from '@/utils/apiUrl';
-import { todayDate } from '@/utils/dateTimeHelper';
+import ajax from "@/utils/ajax";
+import apiUrl from "@/utils/apiUrl";
 
-export const fetchHabitList = () => {
+export const fetchHabitList = params => {
   return ajax(apiUrl.indexHabitListUrl, {
-    params: {date: todayDate}
+    params
   });
 };
 
-export const completeHabit = (params) => {
+export const completeHabit = params => {
   return ajax(apiUrl.completeHabitUrl, {
-    method: 'POST',
+    method: "POST",
     params
   });
-}
+};
