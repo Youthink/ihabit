@@ -1,5 +1,5 @@
-@mixin max-width($maxWidth:414px,$minScreen:800px) {
-	@media only screen and (min-width:$minScreen) {
-		max-width:$maxWidth;
-	}
+@mixin max-width($maxWidth: 414px, $minScreen: 800px) {
+  @media only screen and (min-width: $minScreen) {
+    max-width: $maxWidth;
+  }
 }
