@@ -1,16 +1,19 @@
-import { Icon, Modal, Input, Radio, message } from "antd";
-import { useState, useEffect } from "react";
-import { fetchHabitList, completeHabit } from "@/action";
-import { todayDate } from "@/utils/dateTimeHelper";
+import { Icon, Modal, Input, Radio, message } from 'antd';
+import { useState, useEffect } from 'react';
+import { fetchHabitList, completeHabit, addNewHabit } from '@/action';
+import { todayDate } from '@/utils/dateTimeHelper';
 
-import "@/styles/app.scss";
-import "@/styles/index.scss";
+import '@/styles/app.scss';
+import '@/styles/index.scss';
 
 const indexPage = () => {
   const [needLogin, setLoginStatus] = useState(false); // eslint-disable-line
   const [habitsList, updateHabitsList] = useState([]);
   const [totalScore, updateTotalScore] = useState({});
   const [showAddHabitModal, setAddHabitModalStatus] = useState(false);
+  const [inputHabitName, updateHabitName] = useState('');
+  const [inputHabitDesc, updateHabitDesc] = useState('');
+  const [inputHabitScore, updateHabitScore] = useState(1);
 
   useEffect(() => {
     loadData();
@@ -30,8 +33,29 @@ const indexPage = () => {
     setAddHabitModalStatus(true);
   };
 
+  const validation = () => {
+    if (!inputHabitName) {
+      message.warn('请填写习惯名称~');
+      return false;
+    }
+
+    return true;
+  };
+
+  const submitNewHabit = () => {
+    if (!validation()) {
+      return;
+    }
+
+    addNewHabit({ name: inputHabitName, score: inputHabitScore }).then(() => {
+      message.success('成功添加一枚习惯~~');
+      loadData();
+      setAddHabitModalStatus(false);
+    });
+  };
+
   const checkInHabit = o => {
-    if (o.status === "finish") {
+    if (o.status === 'finish') {
       return;
     }
     completeHabit({ habitId: o.id, date: todayDate }).then(res => {
@@ -70,7 +94,7 @@ const indexPage = () => {
                 <div className="info">
                   <div className="name">{o.name}</div>
                   <div className="score">
-                    {o.status === "finish" ? (
+                    {o.status === 'finish' ? (
                       <span>已完成，获得 {o.score} 分</span>
                     ) : (
                       <span>分值：{o.score}</span>
@@ -78,7 +102,7 @@ const indexPage = () => {
                   </div>
                 </div>
                 <div className="check right">
-                  {o.status === "finish" ? (
+                  {o.status === 'finish' ? (
                     <Icon type="like" theme="twoTone" twoToneColor="#eb2f96" />
                   ) : (
                     <Icon
@@ -99,18 +123,38 @@ const indexPage = () => {
           <Icon type="github" />
           <p>Github 账号快速登录</p>
         </Modal>
-        <Modal title="添加习惯" visible={showAddHabitModal} closable={false}>
+        <Modal
+          title="添加习惯"
+          closable={false}
+          visible={showAddHabitModal}
+          onCancel={() => setAddHabitModalStatus(false)}
+          onOk={submitNewHabit}
+        >
           <div className="form-item">
             <label className="title">名称</label>
-            <Input className="inline" placeholder="请输入习惯名称" />
+            <Input
+              className="inline"
+              onChange={e => {
+                updateHabitName(e.target.value);
+              }}
+              placeholder="请输入习惯名称"
+            />
           </div>
           <div className="form-item">
             <label className="title">描述</label>
-            <Input className="inline" placeholder="请输入习惯描述" />
+            <Input
+              className="inline"
+              onChange={e => updateHabitDesc(e.target.value)}
+              placeholder="请输入习惯描述"
+            />
           </div>
           <div className="form-item">
             <label className="title">难度</label>
-            <Radio.Group defaultValue="1" buttonStyle="solid">
+            <Radio.Group
+              defaultValue={1}
+              onChange={e => updateHabitScore(e.target.value)}
+              buttonStyle="solid"
+            >
               <Radio.Button value={1}>简单</Radio.Button>
               <Radio.Button value={2}>一般</Radio.Button>
               <Radio.Button value={3}>困难</Radio.Button>
