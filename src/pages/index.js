@@ -100,13 +100,22 @@ const indexPage = () => {
           <p>Github 账号快速登录</p>
         </Modal>
         <Modal title="添加习惯" visible={showAddHabitModal} closable={false}>
-          <Input placeholder="请输入习惯名称" />
-          <Input placeholder="请输入习惯描述" />
-          <Radio.Group defaultValue="1" buttonStyle="solid">
-            <Radio.Button value={1}>简单</Radio.Button>
-            <Radio.Button value={2}>一般</Radio.Button>
-            <Radio.Button value={3}>困难</Radio.Button>
-          </Radio.Group>
+          <div className="form-item">
+            <label className="title">名称</label>
+            <Input className="inline" placeholder="请输入习惯名称" />
+          </div>
+          <div className="form-item">
+            <label className="title">描述</label>
+            <Input className="inline" placeholder="请输入习惯描述" />
+          </div>
+          <div className="form-item">
+            <label className="title">难度</label>
+            <Radio.Group defaultValue="1" buttonStyle="solid">
+              <Radio.Button value={1}>简单</Radio.Button>
+              <Radio.Button value={2}>一般</Radio.Button>
+              <Radio.Button value={3}>困难</Radio.Button>
+            </Radio.Group>
+          </div>
         </Modal>
       </div>
     </div>
