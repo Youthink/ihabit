@@ -1,14 +1,15 @@
-import request, { extend } from "umi-request";
-import { message } from "antd";
+import request, { extend } from 'umi-request';
+import apiUrl from '@/utils/apiUrl';
+import { message } from 'antd';
 
 const ajax = extend({
-  credentials: "include"
+  credentials: 'include'
 });
 
 request.interceptors.response.use(async response => {
   const res = await response.clone().json();
   if (res && res.apiCode === 1000) {
-    window.location = "http://fe.iday.top:4000/api/v1/auth/github";
+    window.location = apiUrl.githubAuthUrl;
   }
 
   if (res && res.apiMessage && !res.success) {
