@@ -8,7 +8,7 @@ const ajax = extend({
 request.interceptors.response.use(async response => {
   const res = await response.clone().json();
   if (res && res.apiCode === 1000) {
-    // console.log('需要登录');
+    window.location = "http://fe.iday.top:4000/api/v1/auth/github";
   }
 
   if (res && res.apiMessage && !res.success) {
