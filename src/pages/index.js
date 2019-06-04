@@ -1,6 +1,11 @@
 import { Icon, Modal, Input, Radio, message } from 'antd';
 import { useState, useEffect } from 'react';
-import { fetchHabitList, completeHabit, addNewHabit } from '@/action';
+import {
+  fetchHabitList,
+  completeHabit,
+  addNewHabit,
+  cancelHabit
+} from '@/action';
 import { todayDate } from '@/utils/dateTimeHelper';
 
 import '@/styles/app.scss';
@@ -56,6 +61,12 @@ const indexPage = () => {
 
   const checkInHabit = o => {
     if (o.status === 'finish') {
+      cancelHabit({ habitId: o.id, habitCompletedId: o.habitCompletedId }).then(
+        res => {
+          res && res.success && message.success(res && res.apiMessage);
+          loadData();
+        }
+      );
       return;
     }
     completeHabit({ habitId: o.id, date: todayDate }).then(res => {

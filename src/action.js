@@ -14,6 +14,13 @@ export const completeHabit = params => {
   });
 };
 
+export const cancelHabit = params => {
+  return ajax(apiUrl.cancelHabitUrl, {
+    method: 'POST',
+    params
+  });
+};
+
 export const addNewHabit = params => {
   return ajax(apiUrl.addHabitUrl, {
     method: 'POST',
