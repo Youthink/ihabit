@@ -53,6 +53,12 @@ body {
 
 .habits-container {
   background: #f8f9fb;
+
+  .am-swipe {
+    .am-swipe-actions {
+      margin: rem(15) auto;
+    }
+  }
   .box {
     margin: rem(15);
     padding: rem(15);

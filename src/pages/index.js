@@ -1,24 +1,24 @@
-import { Icon, Input, Radio, message } from 'antd';
-import { Modal } from 'antd-mobile';
-import { useState, useEffect } from 'react';
+import { Icon, Input, Radio, message } from "antd";
+import { Modal, SwipeAction } from "antd-mobile";
+import { useState, useEffect } from "react";
 import {
   fetchHabitList,
   completeHabit,
   addNewHabit,
   cancelHabit
-} from '@/action';
-import { todayDate } from '@/utils/dateTimeHelper';
+} from "@/action";
+import { todayDate } from "@/utils/dateTimeHelper";
 
-import '@/styles/app.scss';
-import '@/styles/index.scss';
+import "@/styles/app.scss";
+import "@/styles/index.scss";
 
 const indexPage = () => {
   const [needLogin, setLoginStatus] = useState(false); // eslint-disable-line
   const [habitsList, updateHabitsList] = useState([]);
   const [totalScore, updateTotalScore] = useState({});
   const [showAddHabitModal, setAddHabitModalStatus] = useState(false);
-  const [inputHabitName, updateHabitName] = useState('');
-  const [inputHabitDesc, updateHabitDesc] = useState('');
+  const [inputHabitName, updateHabitName] = useState("");
+  const [inputHabitDesc, updateHabitDesc] = useState("");
   const [inputHabitScore, updateHabitScore] = useState(1);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const indexPage = () => {
 
   const validation = () => {
     if (!inputHabitName) {
-      message.warn('请填写习惯名称~');
+      message.warn("请填写习惯名称~");
       return false;
     }
 
@@ -54,14 +54,14 @@ const indexPage = () => {
     }
 
     addNewHabit({ name: inputHabitName, score: inputHabitScore }).then(() => {
-      message.success('成功添加一枚习惯~~');
+      message.success("成功添加一枚习惯~~");
       loadData();
       setAddHabitModalStatus(false);
     });
   };
 
   const checkInHabit = o => {
-    if (o.status === 'finish') {
+    if (o.status === "finish") {
       cancelHabit({ habitId: o.id, habitCompletedId: o.habitCompletedId }).then(
         res => {
           res && res.success && message.success(res && res.apiMessage);
@@ -95,32 +95,56 @@ const indexPage = () => {
         <section className="habits-container">
           {habitsList.map(o => {
             return (
-              <div className="box" onClick={() => checkInHabit(o)} key={o.id}>
-                <div className="habit-icon">
-                  {/*<Icon type="smile" theme="twoTone" twoToneColor="#eb2f96" />*/}
-                </div>
-                <div className="info">
-                  <div className="name">{o.name}</div>
-                  <div className="score">
-                    {o.status === 'finish' ? (
-                      <span>已完成，获得 {o.score} 分</span>
+              <SwipeAction
+                autoClose
+                right={[
+                  {
+                    text: "编辑",
+                    onPress: () => console.log("cancel"),
+                    style: { backgroundColor: "#108ee9", color: "#FFF" }
+                  }
+                ]}
+                left={[
+                  {
+                    text: "删除",
+                    onPress: () => console.log("reply"),
+                    style: { backgroundColor: "#F4333C", color: "#FFF" }
+                  }
+                ]}
+                onOpen={() => console.log("global open")}
+                onClose={() => console.log("global close")}
+              >
+                <div className="box" onClick={() => checkInHabit(o)} key={o.id}>
+                  <div className="habit-icon">
+                    {/*<Icon type="smile" theme="twoTone" twoToneColor="#eb2f96" />*/}
+                  </div>
+                  <div className="info">
+                    <div className="name">{o.name}</div>
+                    <div className="score">
+                      {o.status === "finish" ? (
+                        <span>已完成，获得 {o.score} 分</span>
+                      ) : (
+                        <span>分值：{o.score}</span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="check right">
+                    {o.status === "finish" ? (
+                      <Icon
+                        type="like"
+                        theme="twoTone"
+                        twoToneColor="#eb2f96"
+                      />
                     ) : (
-                      <span>分值：{o.score}</span>
+                      <Icon
+                        type="check-circle"
+                        theme="twoTone"
+                        twoToneColor="#52c41a"
+                      />
                     )}
                   </div>
                 </div>
-                <div className="check right">
-                  {o.status === 'finish' ? (
-                    <Icon type="like" theme="twoTone" twoToneColor="#eb2f96" />
-                  ) : (
-                    <Icon
-                      type="check-circle"
-                      theme="twoTone"
-                      twoToneColor="#52c41a"
-                    />
-                  )}
-                </div>
-              </div>
+              </SwipeAction>
             );
           })}
         </section>
@@ -139,8 +163,8 @@ const indexPage = () => {
           transparent
           onClose={() => setAddHabitModalStatus(false)}
           footer={[
-            { text: '取消', onPress: () => setAddHabitModalStatus(false) },
-            { text: '添加', onPress: submitNewHabit }
+            { text: "取消", onPress: () => setAddHabitModalStatus(false) },
+            { text: "添加", onPress: submitNewHabit }
           ]}
         >
           <div className="form-item">
