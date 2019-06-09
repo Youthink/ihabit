@@ -54,17 +54,18 @@ body {
 .habits-container {
   background: #f8f9fb;
 
-  .am-swipe {
-    .am-swipe-actions {
-      margin: rem(15) auto;
+  .swipe-habit-item {
+    margin: rem(15);
+    border-radius: rem(5);
+    .am-swipe-content {
+      border-radius: rem(5);
     }
   }
+
   .box {
-    margin: rem(15);
     padding: rem(15);
     color: #666;
     background: #fff;
-    border-radius: rem(5);
     .habit-icon {
       display: inline-block;
       margin-right: rem(16);
