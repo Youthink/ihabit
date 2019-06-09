@@ -4,6 +4,10 @@
   "author": "Youthink",
   "scripts": {
     "lint": "umi-lint --eslint src/",
+    "lint:fix": "umi-lint --eslint src/ --fix",
+    "stylelint": "yarn stylelint src/styles/*",
+    "stylelint:fix": "yarn stylelint src/styles/* --fix",
+    "analyze": "ANALYZE=1 umi build",
     "precommit": "umi-lint --staged --eslint --stylelint --prettier --fix"
   },
   "devDependencies": {
@@ -19,7 +23,7 @@
     "stylelint-group-selectors": "^1.0.7",
     "stylelint-high-performance-animation": "^1.2.1",
     "stylelint-scss": "^3.8.0",
-    "umi": "^2.7.0",
+    "umi": "^2",
     "umi-lint": "^1.0.1",
     "umi-plugin-gh-pages": "^0.x",
     "umi-plugin-react": "^1.7.6",
