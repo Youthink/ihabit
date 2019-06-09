@@ -1,4 +1,5 @@
-import { Icon, Modal, Input, Radio, message } from 'antd';
+import { Icon, Input, Radio, message } from 'antd';
+import { Modal } from 'antd-mobile';
 import { useState, useEffect } from 'react';
 import {
   fetchHabitList,
@@ -79,13 +80,9 @@ const indexPage = () => {
     <div className="index-page">
       <div className="box-container">
         <header className="site-header">
-          <div className="left">
-            <Icon type="menu" />
-          </div>
+          <div className="left">{/*<Icon type="menu" />*/}</div>
           <div className="site-title">iHabit</div>
-          <div className="right">
-            <Icon type="plus" />
-          </div>
+          <div className="right">{/*<Icon type="plus" />*/}</div>
         </header>
         <section className="score-container">
           <span className="text left">
@@ -135,11 +132,16 @@ const indexPage = () => {
           <p>Github 账号快速登录</p>
         </Modal>
         <Modal
+          className="add-habit-modal"
           title="添加习惯"
           closable={false}
           visible={showAddHabitModal}
-          onCancel={() => setAddHabitModalStatus(false)}
-          onOk={submitNewHabit}
+          transparent
+          onClose={() => setAddHabitModalStatus(false)}
+          footer={[
+            { text: '取消', onPress: () => setAddHabitModalStatus(false) },
+            { text: '添加', onPress: submitNewHabit }
+          ]}
         >
           <div className="form-item">
             <label className="title">名称</label>

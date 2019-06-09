@@ -1632,10 +1632,10 @@ address@^1.0.1:
   resolved "https://r.cnpmjs.org/address/download/address-1.1.0.tgz#ef8e047847fcd2c5b6f50c16965f924fd99fe709"
   integrity sha1-744EeEf80sW29QwWll+ST9mf5wk=
 
-af-webpack@1.8.0:
-  version "1.8.0"
-  resolved "https://r.cnpmjs.org/af-webpack/download/af-webpack-1.8.0.tgz#086003249783f29f2c3f9484304c0414d16e9e45"
-  integrity sha1-CGADJJeD8p8sP5SEMEwEFNFunkU=
+af-webpack@1.8.1:
+  version "1.8.1"
+  resolved "https://r.cnpmjs.org/af-webpack/download/af-webpack-1.8.1.tgz#f2441aed206c5e06e5db9bf5dc16669001378c5f"
+  integrity sha1-8kQa7SBsXgbl25v13BZmkAE3jF8=
   dependencies:
     "@babel/core" "7.2.2"
     "@babel/plugin-transform-react-constant-elements" "7.2.0"
@@ -1703,7 +1703,7 @@ af-webpack@1.8.0:
     tslint "5.12.1"
     tslint-loader "3.5.4"
     typescript "3.3.3"
-    uglifyjs-webpack-plugin "2.1.3"
+    uglifyjs-webpack-plugin "1.3.0"
     umi-url-pnp-loader "1.1.2"
     webpack "4.28.4"
     webpack-bundle-analyzer "3.3.2"
@@ -2748,6 +2748,25 @@ bytes@3.1.0:
   resolved "https://r.cnpmjs.org/bytes/download/bytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"
   integrity sha1-9s95M6Ng4FiPqf3oVlHNx/gF0fY=
 
+cacache@^10.0.4:
+  version "10.0.4"
+  resolved "https://r.cnpmjs.org/cacache/download/cacache-10.0.4.tgz#6452367999eff9d4188aefd9a14e9d7c6a263460"
+  integrity sha1-ZFI2eZnv+dQYiu/ZoU6dfGomNGA=
+  dependencies:
+    bluebird "^3.5.1"
+    chownr "^1.0.1"
+    glob "^7.1.2"
+    graceful-fs "^4.1.11"
+    lru-cache "^4.1.1"
+    mississippi "^2.0.0"
+    mkdirp "^0.5.1"
+    move-concurrently "^1.0.1"
+    promise-inflight "^1.0.1"
+    rimraf "^2.6.2"
+    ssri "^5.2.4"
+    unique-filename "^1.1.0"
+    y18n "^4.0.0"
+
 cacache@^11.3.1, cacache@^11.3.2:
   version "11.3.2"
   resolved "https://r.cnpmjs.org/cacache/download/cacache-11.3.2.tgz#2d81e308e3d258ca38125b676b98b2ac9ce69bfa"
@@ -3063,7 +3082,7 @@ chokidar@^2.0.0, chokidar@^2.0.2, chokidar@^2.0.4:
   optionalDependencies:
     fsevents "^1.2.7"
 
-chownr@^1.1.1:
+chownr@^1.0.1, chownr@^1.1.1:
   version "1.1.1"
   resolved "https://r.cnpmjs.org/chownr/download/chownr-1.1.1.tgz#54726b8b8fff4df053c42187e801fb4412df1494"
   integrity sha1-VHJri4//TfBTxCGH6AH7RBLfFJQ=
@@ -3355,6 +3374,11 @@ commander@^2.11.0, commander@^2.12.1, commander@^2.14.1, commander@^2.18.0, comm
   version "2.20.0"
   resolved "https://r.cnpmjs.org/commander/download/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
   integrity sha1-1YuytcHuj4ew00ACfp6U4iLFpCI=
+
+commander@~2.13.0:
+  version "2.13.0"
+  resolved "https://r.cnpmjs.org/commander/download/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
+  integrity sha1-aWS8pnaF33wfFDDFhPB9dZeIW5w=
 
 commander@~2.19.0:
   version "2.19.0"
@@ -5487,7 +5511,7 @@ find-cache-dir@^1.0.0:
     make-dir "^1.0.0"
     pkg-dir "^2.0.0"
 
-find-cache-dir@^2.0.0, find-cache-dir@^2.1.0:
+find-cache-dir@^2.0.0:
   version "2.1.0"
   resolved "https://r.cnpmjs.org/find-cache-dir/download/find-cache-dir-2.1.0.tgz#8d0f94cd13fe43c6c7c261a0d86115ca918c05f7"
   integrity sha1-jQ+UzRP+Q8bHwmGg2GEVypGMBfc=
@@ -8411,7 +8435,7 @@ lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
   resolved "https://r.cnpmjs.org/lowercase-keys/download/lowercase-keys-1.0.1.tgz#6f9e30b47084d971a7c820ff15a6c5167b74c26f"
   integrity sha1-b54wtHCE2XGnyCD/FabFFnt0wm8=
 
-lru-cache@^4.0.1:
+lru-cache@^4.0.1, lru-cache@^4.1.1:
   version "4.1.5"
   resolved "https://r.cnpmjs.org/lru-cache/download/lru-cache-4.1.5.tgz#8bbe50ea85bed59bc9e33dcab8235ee9bcf443cd"
   integrity sha1-i75Q6oW+1ZvJ4z3KuCNe6bz0Q80=
@@ -8794,6 +8818,22 @@ minizlib@^1.1.1:
   integrity sha1-3SfqYTYkPHyIBoToZyuzpF/ZthQ=
   dependencies:
     minipass "^2.2.1"
+
+mississippi@^2.0.0:
+  version "2.0.0"
+  resolved "https://r.cnpmjs.org/mississippi/download/mississippi-2.0.0.tgz#3442a508fafc28500486feea99409676e4ee5a6f"
+  integrity sha1-NEKlCPr8KFAEhv7qmUCWduTuWm8=
+  dependencies:
+    concat-stream "^1.5.0"
+    duplexify "^3.4.2"
+    end-of-stream "^1.1.0"
+    flush-write-stream "^1.0.0"
+    from2 "^2.1.0"
+    parallel-transform "^1.1.0"
+    pump "^2.0.1"
+    pumpify "^1.3.3"
+    stream-each "^1.1.0"
+    through2 "^2.0.0"
 
 mississippi@^3.0.0:
   version "3.0.0"
@@ -10620,7 +10660,7 @@ public-encrypt@^4.0.0:
     randombytes "^2.0.1"
     safe-buffer "^5.1.2"
 
-pump@^2.0.0:
+pump@^2.0.0, pump@^2.0.1:
   version "2.0.1"
   resolved "https://r.cnpmjs.org/pump/download/pump-2.0.1.tgz#12399add6e4cf7526d973cbc8b5ce2e2908b3909"
   integrity sha1-Ejma3W5M91Jtlzy8i1zi4pCLOQk=
@@ -12866,6 +12906,13 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
+ssri@^5.2.4:
+  version "5.3.0"
+  resolved "https://r.cnpmjs.org/ssri/download/ssri-5.3.0.tgz#ba3872c9c6d33a0704a7d71ff045e5ec48999d06"
+  integrity sha1-ujhyycbTOgcEp9cf8EXl7EiZnQY=
+  dependencies:
+    safe-buffer "^5.1.1"
+
 ssri@^6.0.1:
   version "6.0.1"
   resolved "https://r.cnpmjs.org/ssri/download/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
@@ -13850,6 +13897,14 @@ ua-parser-js@^0.7.18:
   resolved "https://r.cnpmjs.org/ua-parser-js/download/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
   integrity sha1-lBUb5MCn+x0AGvcCL9rKRkJlnks=
 
+uglify-es@^3.3.4:
+  version "3.3.9"
+  resolved "https://r.cnpmjs.org/uglify-es/download/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
+  integrity sha1-DBxPBwC+2NvBJM2zBNJZLKID5nc=
+  dependencies:
+    commander "~2.13.0"
+    source-map "~0.6.1"
+
 uglify-js@3.4.x:
   version "3.4.10"
   resolved "https://r.cnpmjs.org/uglify-js/download/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"
@@ -13858,7 +13913,7 @@ uglify-js@3.4.x:
     commander "~2.19.0"
     source-map "~0.6.1"
 
-uglify-js@^3.1.4, uglify-js@^3.5.12:
+uglify-js@^3.1.4:
   version "3.6.0"
   resolved "https://r.cnpmjs.org/uglify-js/download/uglify-js-3.6.0.tgz#704681345c53a8b2079fb6cec294b05ead242ff5"
   integrity sha1-cEaBNFxTqLIHn7bOwpSwXq0kL/U=
@@ -13866,25 +13921,24 @@ uglify-js@^3.1.4, uglify-js@^3.5.12:
     commander "~2.20.0"
     source-map "~0.6.1"
 
-uglifyjs-webpack-plugin@2.1.3:
-  version "2.1.3"
-  resolved "https://r.cnpmjs.org/uglifyjs-webpack-plugin/download/uglifyjs-webpack-plugin-2.1.3.tgz#b00a18d1acda271deb755c99ba0d93568156eb76"
-  integrity sha1-sAoY0azaJx3rdVyZug2TVoFW63Y=
+uglifyjs-webpack-plugin@1.3.0:
+  version "1.3.0"
+  resolved "https://r.cnpmjs.org/uglifyjs-webpack-plugin/download/uglifyjs-webpack-plugin-1.3.0.tgz#75f548160858163a08643e086d5fefe18a5d67de"
+  integrity sha1-dfVIFghYFjoIZD4IbV/v4YpdZ94=
   dependencies:
-    cacache "^11.3.2"
-    find-cache-dir "^2.1.0"
-    is-wsl "^1.1.0"
-    schema-utils "^1.0.0"
-    serialize-javascript "^1.7.0"
+    cacache "^10.0.4"
+    find-cache-dir "^1.0.0"
+    schema-utils "^0.4.5"
+    serialize-javascript "^1.4.0"
     source-map "^0.6.1"
-    uglify-js "^3.5.12"
-    webpack-sources "^1.3.0"
-    worker-farm "^1.7.0"
+    uglify-es "^3.3.4"
+    webpack-sources "^1.1.0"
+    worker-farm "^1.5.2"
 
-umi-build-dev@1.9.0:
-  version "1.9.0"
-  resolved "https://r.cnpmjs.org/umi-build-dev/download/umi-build-dev-1.9.0.tgz#b3b8888e1bcbaa7da0f47bfd510bfb5e58018ea3"
-  integrity sha1-s7iIjhvLqn2g9Hv9UQv7XlgBjqM=
+umi-build-dev@1.9.1:
+  version "1.9.1"
+  resolved "https://r.cnpmjs.org/umi-build-dev/download/umi-build-dev-1.9.1.tgz#86cb68b558c9a26fc0fa8fe87213bb1e785e3985"
+  integrity sha1-hstotVjJom/A+o/ochO7HnheOYU=
   dependencies:
     "@babel/code-frame" "7.0.0"
     "@babel/generator" "7.3.0"
@@ -13894,7 +13948,7 @@ umi-build-dev@1.9.0:
     "@babel/template" "7.2.2"
     "@babel/traverse" "7.2.3"
     "@babel/types" "7.3.0"
-    af-webpack "1.8.0"
+    af-webpack "1.8.1"
     babel-plugin-module-resolver "3.1.1"
     babel-preset-umi "1.5.0"
     chalk "2.4.1"
@@ -14160,10 +14214,10 @@ umi-utils@1.4.4:
     is-url "1.2.4"
     slash2 "2.0.0"
 
-umi@^2.7.0:
-  version "2.7.0"
-  resolved "https://r.cnpmjs.org/umi/download/umi-2.7.0.tgz#89192a4f4ea15fbfe7b4b72058a8a1a674628c7b"
-  integrity sha1-iRkqT06hX7/ntLcgWKihpnRijHs=
+umi@^2:
+  version "2.7.1"
+  resolved "https://r.cnpmjs.org/umi/download/umi-2.7.1.tgz#ea5b0fc467bd6a39b1f41d5c923ba04bb1443521"
+  integrity sha1-6lsPxGe9ajmx9B1ckjugS7FENSE=
   dependencies:
     "@babel/core" "7.2.2"
     "@babel/runtime" "7.3.0"
@@ -14178,7 +14232,7 @@ umi@^2.7.0:
     resolve-cwd "2.0.0"
     semver "5.6.0"
     signale "1.3.0"
-    umi-build-dev "1.9.0"
+    umi-build-dev "1.9.1"
     umi-utils "1.4.4"
     update-notifier "2.5.0"
     yargs-parser "13.0.0"
@@ -14248,7 +14302,7 @@ uniqs@^2.0.0:
   resolved "https://r.cnpmjs.org/uniqs/download/uniqs-2.0.0.tgz#ffede4b36b25290696e6e165d4a59edb998e6b02"
   integrity sha1-/+3ks2slKQaW5uFl1KWe25mOawI=
 
-unique-filename@^1.1.1:
+unique-filename@^1.1.0, unique-filename@^1.1.1:
   version "1.1.1"
   resolved "https://r.cnpmjs.org/unique-filename/download/unique-filename-1.1.1.tgz#1d69769369ada0583103a1e6ae87681b56573230"
   integrity sha1-HWl2k2mtoFgxA6HmrodoG1ZXMjA=
@@ -15015,7 +15069,7 @@ workbox-webpack-plugin@3.6.3:
     json-stable-stringify "^1.0.1"
     workbox-build "^3.6.3"
 
-worker-farm@^1.7.0:
+worker-farm@^1.5.2, worker-farm@^1.7.0:
   version "1.7.0"
   resolved "https://r.cnpmjs.org/worker-farm/download/worker-farm-1.7.0.tgz#26a94c5391bbca926152002f69b84a4bf772e5a8"
   integrity sha1-JqlMU5G7ypJhUgAvabhKS/dy5ag=

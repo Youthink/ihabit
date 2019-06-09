@@ -196,13 +196,3 @@ input::-webkit-input-placeholder {
 }
 
 /**** reset Antd Modal ***/
-
-.ant-modal-content {
-  .ant-modal-header,
-  .ant-modal-footer {
-    text-align: center;
-  }
-  .ant-modal-footer button + button {
-    margin-left: 30px;
-  }
-}
