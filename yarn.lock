@@ -10733,9 +10733,9 @@ query-string@^5.0.1:
     strict-uri-encode "^1.0.0"
 
 query-string@^6.0.0:
-  version "6.5.0"
-  resolved "https://r.cnpmjs.org/query-string/download/query-string-6.5.0.tgz#2e1a70125af01f6f04573692d02c09302a1d8bfc"
-  integrity sha1-LhpwElrwH28EVzaS0CwJMCodi/w=
+  version "6.7.0"
+  resolved "https://r.cnpmjs.org/query-string/download/query-string-6.7.0.tgz#7e92bf8525140cf8c5ebf500f26716b0de5b7023"
+  integrity sha1-fpK/hSUUDPjF6/UA8mcWsN5bcCM=
   dependencies:
     decode-uri-component "^0.2.0"
     split-on-first "^1.0.0"

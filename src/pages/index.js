@@ -5,6 +5,7 @@ import {
   fetchHabitList,
   completeHabit,
   addNewHabit,
+  deleteHabit,
   cancelHabit
 } from '@/action';
 import { todayDate } from '@/utils/dateTimeHelper';
@@ -37,6 +38,12 @@ const indexPage = () => {
 
   const addHabit = () => {
     setAddHabitModalStatus(true);
+  };
+
+  const deleteHabitHandle = id => {
+    deleteHabit(id).then(() => {
+      loadData();
+    });
   };
 
   const validation = () => {
@@ -96,6 +103,7 @@ const indexPage = () => {
           {habitsList.map(o => {
             return (
               <SwipeAction
+                key={o.id}
                 className="swipe-habit-item"
                 autoClose
                 right={[
@@ -108,14 +116,17 @@ const indexPage = () => {
                 left={[
                   {
                     text: '删除',
-                    onPress: () => console.log('reply'),
+                    onPress: () => {
+                      Modal.alert('删除习惯', '确认删除该习惯吗?', [
+                        { text: '不删除' },
+                        { text: '删除', onPress: () => deleteHabitHandle(o.id) }
+                      ]);
+                    },
                     style: { backgroundColor: '#F4333C', color: '#FFF' }
                   }
                 ]}
-                onOpen={() => console.log('global open')}
-                onClose={() => console.log('global close')}
               >
-                <div className="box" onClick={() => checkInHabit(o)} key={o.id}>
+                <div className="box" onClick={() => checkInHabit(o)}>
                   <div className="habit-icon">
                     {/*<Icon type="smile" theme="twoTone" twoToneColor="#eb2f96" />*/}
                   </div>

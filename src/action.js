@@ -7,23 +7,29 @@ export const fetchHabitList = params => {
   });
 };
 
-export const completeHabit = params => {
+export const completeHabit = data => {
   return ajax(apiUrl.completeHabitUrl, {
     method: 'POST',
-    params
+    data
   });
 };
 
-export const cancelHabit = params => {
+export const cancelHabit = data => {
   return ajax(apiUrl.cancelHabitUrl, {
     method: 'POST',
-    params
+    data
   });
 };
 
-export const addNewHabit = params => {
+export const addNewHabit = data => {
   return ajax(apiUrl.addHabitUrl, {
     method: 'POST',
-    params
+    data
+  });
+};
+
+export const deleteHabit = id => {
+  return ajax(`${apiUrl.habitUrl}/${id}`, {
+    method: 'DELETE'
   });
 };

@@ -12,6 +12,6 @@ export default {
   indexHabitListUrl: `${getHost()}/api/v1/day`,
   completeHabitUrl: `${getHost()}/api/v1/habit/complete`,
   cancelHabitUrl: `${getHost()}/api/v1/habit/cancel`,
-  addHabitUrl: `${getHost()}/api/v1/habit`,
+  habitUrl: `${getHost()}/api/v1/habit`,
   githubAuthUrl: `${getHost()}/api/v1/auth/github`
 };
