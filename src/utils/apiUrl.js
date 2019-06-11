@@ -6,7 +6,7 @@ const getHost = () => {
     return 'http://fe.iday.top:4000';
   }
   // prod
-  return 'http://ihabit.iyearn.top';
+  return 'http://iday.top';
 };
 export default {
   indexHabitListUrl: `${getHost()}/api/v1/day`,
