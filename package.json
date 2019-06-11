@@ -7,6 +7,8 @@
     "lint:fix": "umi-lint --eslint src/ --fix",
     "stylelint": "yarn stylelint src/styles/*",
     "cname": "cp ./CNAME ./dist/CNAME",
+    "build": "umi build && yarn cname",
+    "deploy": "yarn build && umi gh-pages",
     "stylelint:fix": "yarn stylelint src/styles/* --fix",
     "analyze": "ANALYZE=1 umi build",
     "precommit": "umi-lint --staged --eslint --stylelint --prettier --fix"
