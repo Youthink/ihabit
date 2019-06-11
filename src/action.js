@@ -22,7 +22,7 @@ export const cancelHabit = data => {
 };
 
 export const addNewHabit = data => {
-  return ajax(apiUrl.addHabitUrl, {
+  return ajax(apiUrl.habitUrl, {
     method: 'POST',
     data
   });
@@ -31,5 +31,12 @@ export const addNewHabit = data => {
 export const deleteHabit = id => {
   return ajax(`${apiUrl.habitUrl}/${id}`, {
     method: 'DELETE'
+  });
+};
+
+export const updateHabit = data => {
+  return ajax(`${apiUrl.habitUrl}/${data.id}`, {
+    method: 'PUT',
+    data
   });
 };

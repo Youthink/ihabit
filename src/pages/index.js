@@ -6,6 +6,7 @@ import {
   completeHabit,
   addNewHabit,
   deleteHabit,
+  updateHabit,
   cancelHabit
 } from '@/action';
 import { todayDate } from '@/utils/dateTimeHelper';
@@ -17,10 +18,12 @@ const indexPage = () => {
   const [needLogin, setLoginStatus] = useState(false); // eslint-disable-line
   const [habitsList, updateHabitsList] = useState([]);
   const [totalScore, updateTotalScore] = useState({});
-  const [showAddHabitModal, setAddHabitModalStatus] = useState(false);
+  const [showHabitModal, setHabitModalStatus] = useState(false);
+  const [modalStatus, updateModalStatus] = useState('addHabit');
   const [inputHabitName, updateHabitName] = useState('');
   const [inputHabitDesc, updateHabitDesc] = useState('');
   const [inputHabitScore, updateHabitScore] = useState(1);
+  const [editHabitId, updateEditHabitId] = useState(0);
 
   useEffect(() => {
     loadData();
@@ -37,7 +40,7 @@ const indexPage = () => {
   };
 
   const addHabit = () => {
-    setAddHabitModalStatus(true);
+    setHabitModalStatus(true);
   };
 
   const deleteHabitHandle = id => {
@@ -55,16 +58,32 @@ const indexPage = () => {
     return true;
   };
 
-  const submitNewHabit = () => {
+  const submitHabit = () => {
     if (!validation()) {
       return;
     }
 
-    addNewHabit({ name: inputHabitName, score: inputHabitScore }).then(() => {
-      message.success('成功添加一枚习惯~~');
-      loadData();
-      setAddHabitModalStatus(false);
-    });
+    if (modalStatus === 'addHabit') {
+      addNewHabit({ name: inputHabitName, score: inputHabitScore }).then(() => {
+        message.success('成功添加一枚习惯~~');
+        loadData();
+        closeHabitModal();
+      });
+      return;
+    }
+
+    if (modalStatus === 'updateHabit') {
+      updateHabit({
+        id: editHabitId,
+        name: inputHabitName,
+        score: inputHabitScore
+      }).then(() => {
+        message.success('习惯更新成功~~');
+        loadData();
+        closeHabitModal();
+      });
+      return;
+    }
   };
 
   const checkInHabit = o => {
@@ -81,6 +100,13 @@ const indexPage = () => {
       res && res.success && message.success(res && res.apiMessage);
       loadData();
     });
+  };
+
+  const closeHabitModal = () => {
+    setHabitModalStatus(false);
+    updateHabitName('');
+    updateHabitScore(1);
+    updateModalStatus('addHabit');
   };
 
   return (
@@ -109,7 +135,13 @@ const indexPage = () => {
                 right={[
                   {
                     text: '编辑',
-                    onPress: () => console.log('cancel'),
+                    onPress: () => {
+                      updateHabitName(o.name);
+                      updateHabitScore(o.score);
+                      updateEditHabitId(o.id);
+                      updateModalStatus('updateHabit');
+                      setHabitModalStatus(true);
+                    },
                     style: { backgroundColor: '#108ee9', color: '#FFF' }
                   }
                 ]}
@@ -169,20 +201,24 @@ const indexPage = () => {
         </Modal>
         <Modal
           className="add-habit-modal"
-          title="添加习惯"
+          title={modalStatus === 'addHabit' ? '添加习惯' : '编辑习惯'}
           closable={false}
-          visible={showAddHabitModal}
+          visible={showHabitModal}
           transparent
-          onClose={() => setAddHabitModalStatus(false)}
+          onClose={() => closeHabitModal()}
           footer={[
-            { text: '取消', onPress: () => setAddHabitModalStatus(false) },
-            { text: '添加', onPress: submitNewHabit }
+            { text: '取消', onPress: () => closeHabitModal() },
+            {
+              text: modalStatus === 'addHabit' ? '添加' : '编辑',
+              onPress: submitHabit
+            }
           ]}
         >
           <div className="form-item">
             <label className="title">名称</label>
             <Input
               className="inline"
+              value={inputHabitName}
               onChange={e => {
                 updateHabitName(e.target.value);
               }}
@@ -201,6 +237,7 @@ const indexPage = () => {
             <label className="title">难度</label>
             <Radio.Group
               defaultValue={1}
+              value={inputHabitScore}
               onChange={e => updateHabitScore(e.target.value)}
               buttonStyle="solid"
             >
