@@ -1,6 +1,6 @@
 export default {
-  base: "/ihabit/",
-  publicPath: "/ihabit/",
+  base: "/",
+  publicPath: "/",
   sass: {},
   alias: {
     moment: "dayjs"
