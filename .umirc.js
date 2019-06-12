@@ -20,7 +20,8 @@ export default {
     [
       "umi-plugin-react",
       {
-        antd: true
+        antd: true,
+        pwa: {}
       }
     ]
   ]
