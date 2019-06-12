@@ -1,6 +1,6 @@
 export default {
   base: "/",
-  publicPath: "/",
+  publicPath: "https://static.hufangyun.com/iday/",
   sass: {},
   alias: {
     moment: "dayjs"
