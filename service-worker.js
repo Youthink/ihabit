@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "https://static.hufangyun.com/iday/precache-manifest.2d73f1bc4c6d5c68ff64106792f05549.js"
+  "https://static.hufangyun.com/iday/precache-manifest.d62c33ba3e3d19519f66dd3d135f3d4d.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "ihabit"});
