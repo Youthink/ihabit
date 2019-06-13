@@ -1,6 +1,6 @@
-import { Icon, Input, Radio, message } from "antd";
-import { Modal, SwipeAction } from "antd-mobile";
-import { useState, useEffect } from "react";
+import { Icon, Input, Radio, message } from 'antd';
+import { Modal, SwipeAction } from 'antd-mobile';
+import { useState, useEffect } from 'react';
 import {
   fetchHabitList,
   completeHabit,
@@ -8,20 +8,20 @@ import {
   deleteHabit,
   updateHabit,
   cancelHabit
-} from "@/action";
-import { todayDate } from "@/utils/dateTimeHelper";
+} from '@/action';
+import { todayDate } from '@/utils/dateTimeHelper';
 
-import "@/styles/app.scss";
-import "@/styles/index.scss";
+import '@/styles/app.scss';
+import '@/styles/index.scss';
 
 const indexPage = () => {
   const [needLogin, setLoginStatus] = useState(false); // eslint-disable-line
   const [habitsList, updateHabitsList] = useState([]);
   const [totalScore, updateTotalScore] = useState({});
   const [showHabitModal, setHabitModalStatus] = useState(false);
-  const [modalStatus, updateModalStatus] = useState("addHabit");
-  const [inputHabitName, updateHabitName] = useState("");
-  const [inputHabitDesc, updateHabitDesc] = useState("");
+  const [modalStatus, updateModalStatus] = useState('addHabit');
+  const [inputHabitName, updateHabitName] = useState('');
+  //const [inputHabitDesc, updateHabitDesc] = useState('');
   const [inputHabitScore, updateHabitScore] = useState(1);
   const [editHabitId, updateEditHabitId] = useState(0);
 
@@ -51,7 +51,7 @@ const indexPage = () => {
 
   const validation = () => {
     if (!inputHabitName) {
-      message.warn("请填写习惯名称~");
+      message.warn('请填写习惯名称~');
       return false;
     }
 
@@ -63,22 +63,22 @@ const indexPage = () => {
       return;
     }
 
-    if (modalStatus === "addHabit") {
+    if (modalStatus === 'addHabit') {
       addNewHabit({ name: inputHabitName, score: inputHabitScore }).then(() => {
-        message.success("成功添加一枚习惯~~");
+        message.success('成功添加一枚习惯~~');
         loadData();
         closeHabitModal();
       });
       return;
     }
 
-    if (modalStatus === "updateHabit") {
+    if (modalStatus === 'updateHabit') {
       updateHabit({
         id: editHabitId,
         name: inputHabitName,
         score: inputHabitScore
       }).then(() => {
-        message.success("习惯更新成功~~");
+        message.success('习惯更新成功~~');
         loadData();
         closeHabitModal();
       });
@@ -87,7 +87,7 @@ const indexPage = () => {
   };
 
   const checkInHabit = o => {
-    if (o.status === "finish") {
+    if (o.status === 'finish') {
       cancelHabit({ habitId: o.id, habitCompletedId: o.habitCompletedId }).then(
         res => {
           res && res.success && message.success(res && res.apiMessage);
@@ -104,9 +104,9 @@ const indexPage = () => {
 
   const closeHabitModal = () => {
     setHabitModalStatus(false);
-    updateHabitName("");
+    updateHabitName('');
     updateHabitScore(1);
-    updateModalStatus("addHabit");
+    updateModalStatus('addHabit');
   };
 
   return (
@@ -134,25 +134,25 @@ const indexPage = () => {
                 autoClose
                 right={[
                   {
-                    text: "编辑",
-                    className: "edit-habit-btn swipe-habit-item-btn",
+                    text: '编辑',
+                    className: 'edit-habit-btn swipe-habit-item-btn',
                     onPress: () => {
                       updateHabitName(o.name);
                       updateHabitScore(o.score);
                       updateEditHabitId(o.id);
-                      updateModalStatus("updateHabit");
+                      updateModalStatus('updateHabit');
                       setHabitModalStatus(true);
                     }
                   }
                 ]}
                 left={[
                   {
-                    text: "删除",
-                    className: "delete-habit-btn swipe-habit-item-btn",
+                    text: '删除',
+                    className: 'delete-habit-btn swipe-habit-item-btn',
                     onPress: () => {
-                      Modal.alert("删除习惯", "确认删除该习惯吗?", [
-                        { text: "不删除" },
-                        { text: "删除", onPress: () => deleteHabitHandle(o.id) }
+                      Modal.alert('删除习惯', '确认删除该习惯吗?', [
+                        { text: '不删除' },
+                        { text: '删除', onPress: () => deleteHabitHandle(o.id) }
                       ]);
                     }
                   }
@@ -165,7 +165,7 @@ const indexPage = () => {
                   <div className="info">
                     <div className="name">{o.name}</div>
                     <div className="score">
-                      {o.status === "finish" ? (
+                      {o.status === 'finish' ? (
                         <span>已完成，获得 {o.score} 分</span>
                       ) : (
                         <span>分值：{o.score}</span>
@@ -173,7 +173,7 @@ const indexPage = () => {
                     </div>
                   </div>
                   <div className="check right">
-                    {o.status === "finish" ? (
+                    {o.status === 'finish' ? (
                       <Icon
                         type="like"
                         theme="twoTone"
@@ -201,15 +201,15 @@ const indexPage = () => {
         </Modal>
         <Modal
           className="add-habit-modal"
-          title={modalStatus === "addHabit" ? "添加习惯" : "编辑习惯"}
+          title={modalStatus === 'addHabit' ? '添加习惯' : '编辑习惯'}
           closable={false}
           visible={showHabitModal}
           transparent
           onClose={() => closeHabitModal()}
           footer={[
-            { text: "取消", onPress: () => closeHabitModal() },
+            { text: '取消', onPress: () => closeHabitModal() },
             {
-              text: modalStatus === "addHabit" ? "添加" : "保存",
+              text: modalStatus === 'addHabit' ? '添加' : '保存',
               onPress: submitHabit
             }
           ]}
@@ -229,7 +229,7 @@ const indexPage = () => {
             <label className="title">描述</label>
             <Input
               className="inline"
-              onChange={e => updateHabitDesc(e.target.value)}
+              // onChange={e => updateHabitDesc(e.target.value)}
               placeholder="请输入习惯描述"
             />
           </div>
