@@ -11,10 +11,13 @@
     "deploy": "yarn build && umi gh-pages",
     "stylelint:fix": "yarn stylelint src/styles/* --fix",
     "analyze": "ANALYZE=1 umi build",
+    "commit": "git-cz",
     "precommit": "umi-lint --staged --eslint --stylelint --prettier --fix"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "commitizen": "^3.1.1",
+    "cz-conventional-changelog": "^2.1.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "stylelint-config-css-modules": "^1.4.0",
@@ -35,5 +38,10 @@
   "dependencies": {
     "dayjs": "^1.8.14",
     "umi-request": "^1.0.7"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
