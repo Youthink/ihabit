@@ -119,10 +119,10 @@ const indexPage = () => {
         </header>
         <section className="score-container">
           <span className="text left">
-            今日总分数：{totalScore.todayTotalScore}
+            今日总分数：{totalScore.todayTotalScore || 0}
           </span>
           <span className="text right">
-            本周总分数：{totalScore.weekTotalScore}
+            本周总分数：{totalScore.weekTotalScore || 0}
           </span>
         </section>
         <section className="habits-container">
