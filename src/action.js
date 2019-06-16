@@ -7,6 +7,12 @@ export const fetchHabitList = params => {
   });
 };
 
+export const fetchUserInfo = params => {
+  return ajax(apiUrl.getUserInfoUrl, {
+    params
+  });
+};
+
 export const completeHabit = data => {
   return ajax(apiUrl.completeHabitUrl, {
     method: 'POST',

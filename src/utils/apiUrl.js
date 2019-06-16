@@ -10,6 +10,7 @@ const getHost = () => {
 };
 export default {
   indexHabitListUrl: `${getHost()}/api/v1/day`,
+  getUserInfoUrl: `${getHost()}/api/v1/user`,
   completeHabitUrl: `${getHost()}/api/v1/habit/complete`,
   cancelHabitUrl: `${getHost()}/api/v1/habit/cancel`,
   habitUrl: `${getHost()}/api/v1/habit`,

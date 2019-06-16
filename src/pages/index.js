@@ -3,6 +3,7 @@ import { Modal, SwipeAction } from 'antd-mobile';
 import { useState, useEffect } from 'react';
 import {
   fetchHabitList,
+  fetchUserInfo,
   completeHabit,
   addNewHabit,
   deleteHabit,
@@ -18,15 +19,17 @@ const indexPage = () => {
   const [needLogin, setLoginStatus] = useState(false); // eslint-disable-line
   const [habitsList, updateHabitsList] = useState([]);
   const [totalScore, updateTotalScore] = useState({});
+  const [userInfo, updateUserInfo] = useState(null);
   const [showHabitModal, setHabitModalStatus] = useState(false);
   const [modalStatus, updateModalStatus] = useState('addHabit');
   const [inputHabitName, updateHabitName] = useState('');
-  //const [inputHabitDesc, updateHabitDesc] = useState('');
+  const [inputHabitDesc, updateHabitDesc] = useState('');
   const [inputHabitScore, updateHabitScore] = useState(1);
   const [editHabitId, updateEditHabitId] = useState(0);
 
   useEffect(() => {
     loadData();
+    loadUserInfo();
   }, []);
 
   const loadData = () => {
@@ -36,6 +39,12 @@ const indexPage = () => {
         todayTotalScore: data && data.todayTotalScore,
         weekTotalScore: data && data.weekTotalScore
       });
+    });
+  };
+
+  const loadUserInfo = () => {
+    fetchUserInfo().then(({ data }) => {
+      updateUserInfo({ ...data });
     });
   };
 
@@ -115,7 +124,9 @@ const indexPage = () => {
         <header className="site-header">
           <div className="left">{/*<Icon type="menu" />*/}</div>
           <div className="site-title">iHabit</div>
-          <div className="right">{/*<Icon type="plus" />*/}</div>
+          <div className="right">
+            {userInfo && <img src={userInfo.avatarUrl} className="avatar" />}
+          </div>
         </header>
         <section className="score-container">
           <span className="text left">
@@ -135,26 +146,26 @@ const indexPage = () => {
                 right={[
                   {
                     text: '编辑',
-                    className: 'edit-habit-btn swipe-habit-item-btn',
                     onPress: () => {
                       updateHabitName(o.name);
                       updateHabitScore(o.score);
                       updateEditHabitId(o.id);
                       updateModalStatus('updateHabit');
                       setHabitModalStatus(true);
-                    }
+                    },
+                    style: { backgroundColor: '#108ee9', color: '#FFF' }
                   }
                 ]}
                 left={[
                   {
                     text: '删除',
-                    className: 'delete-habit-btn swipe-habit-item-btn',
                     onPress: () => {
                       Modal.alert('删除习惯', '确认删除该习惯吗?', [
                         { text: '不删除' },
                         { text: '删除', onPress: () => deleteHabitHandle(o.id) }
                       ]);
-                    }
+                    },
+                    style: { backgroundColor: '#F4333C', color: '#FFF' }
                   }
                 ]}
               >
@@ -209,7 +220,7 @@ const indexPage = () => {
           footer={[
             { text: '取消', onPress: () => closeHabitModal() },
             {
-              text: modalStatus === 'addHabit' ? '添加' : '保存',
+              text: modalStatus === 'addHabit' ? '添加' : '编辑',
               onPress: submitHabit
             }
           ]}
@@ -229,7 +240,7 @@ const indexPage = () => {
             <label className="title">描述</label>
             <Input
               className="inline"
-              // onChange={e => updateHabitDesc(e.target.value)}
+              onChange={e => updateHabitDesc(e.target.value)}
               placeholder="请输入习惯描述"
             />
           </div>
