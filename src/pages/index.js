@@ -21,7 +21,7 @@ const indexPage = () => {
   const [showHabitModal, setHabitModalStatus] = useState(false);
   const [modalStatus, updateModalStatus] = useState('addHabit');
   const [inputHabitName, updateHabitName] = useState('');
-  const [inputHabitDesc, updateHabitDesc] = useState('');
+  //const [inputHabitDesc, updateHabitDesc] = useState('');
   const [inputHabitScore, updateHabitScore] = useState(1);
   const [editHabitId, updateEditHabitId] = useState(0);
 
@@ -135,26 +135,26 @@ const indexPage = () => {
                 right={[
                   {
                     text: '编辑',
+                    className: 'edit-habit-btn swipe-habit-item-btn',
                     onPress: () => {
                       updateHabitName(o.name);
                       updateHabitScore(o.score);
                       updateEditHabitId(o.id);
                       updateModalStatus('updateHabit');
                       setHabitModalStatus(true);
-                    },
-                    style: { backgroundColor: '#108ee9', color: '#FFF' }
+                    }
                   }
                 ]}
                 left={[
                   {
                     text: '删除',
+                    className: 'delete-habit-btn swipe-habit-item-btn',
                     onPress: () => {
                       Modal.alert('删除习惯', '确认删除该习惯吗?', [
                         { text: '不删除' },
                         { text: '删除', onPress: () => deleteHabitHandle(o.id) }
                       ]);
-                    },
-                    style: { backgroundColor: '#F4333C', color: '#FFF' }
+                    }
                   }
                 ]}
               >
@@ -209,7 +209,7 @@ const indexPage = () => {
           footer={[
             { text: '取消', onPress: () => closeHabitModal() },
             {
-              text: modalStatus === 'addHabit' ? '添加' : '编辑',
+              text: modalStatus === 'addHabit' ? '添加' : '保存',
               onPress: submitHabit
             }
           ]}
@@ -229,7 +229,7 @@ const indexPage = () => {
             <label className="title">描述</label>
             <Input
               className="inline"
-              onChange={e => updateHabitDesc(e.target.value)}
+              // onChange={e => updateHabitDesc(e.target.value)}
               placeholder="请输入习惯描述"
             />
           </div>
